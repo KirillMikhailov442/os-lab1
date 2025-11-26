@@ -19,6 +19,9 @@ public class SysInfoLinux {
         // Kernel
         System.out.println("Kernel: Linux " + runCommand("uname -r"));
 
+        // Architecture
+        System.out.println("Architecture: " + runCommand("uname -m"));
+
         // Hostname
         System.out.println("Hostname: " + runCommand("hostname"));
 
@@ -44,6 +47,7 @@ public class SysInfoLinux {
                 Double.parseDouble(loads[2]));
 
         // Disks
+        System.out.println("Drivers:");
         String dfOutput = runCommand("df -h --output=target,fstype,avail,size");
         if (dfOutput != null) {
             String[] lines = dfOutput.split("\n");
